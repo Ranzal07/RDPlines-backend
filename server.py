@@ -153,7 +153,7 @@ def convert_bytes(num):
         num /= 1024.0
 
 #simplify
-@app.route('/https://rdplines-backend.onrender.com/api/simplify', methods = ['POST'])
+@app.route('/http://0.0.0.0:10000/api/simplify', methods = ['POST'])
 def trigger():
     return_val = {}
 
@@ -288,13 +288,13 @@ def trigger():
     except Exception as e:
         return jsonify({'message': str(e)}), 400
     
-@app.route('/https://rdplines-backend.onrender.com/download')
+@app.route('/http://0.0.0.0:10000/download')
 def download():
     # send the newly created csv file to the react client
     return send_file(simplified_file, as_attachment=True)
 
 #members api route
-@app.route("/https://rdplines-backend.onrender.com/members")
+@app.route("/http://0.0.0.0:10000/members")
 
 def members():
     return {"members": ["Member1", "Member2", "Member3"]}
