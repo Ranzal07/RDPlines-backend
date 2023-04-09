@@ -4,12 +4,14 @@ import numpy as np
 from rdp import rdp     # comment this line of code if you want to try the rdp code from scratch
 import pandas as pd
 from typing import List
+from flask_cors import CORS
 from scipy.stats import wilcoxon
 from scipy.stats import ttest_ind
 from concurrent.futures import ThreadPoolExecutor
 from flask import Flask, jsonify, request, send_file
 
 app = Flask(__name__)
+CORS(app)
 
 # Set the maximum allowed request size to 100 GB
 app.config['MAX_CONTENT_LENGTH'] = 100 * 1024 * 1024 * 1024
